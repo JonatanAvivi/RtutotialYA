@@ -1,0 +1,36 @@
+---
+  title: "Rtutorial"
+author: "J. Avivi"
+date: "23 בינואר 2017"
+output: html_document
+
+---
+
+## Introduction
+This is the data description
+
+```{r, echo=FALSE}
+# load the data 
+ourdata <- read.csv("Data/CopyOfBoats.csv", header=TRUE, sep=";")
+
+Firstrows <- head(ourdata,5)
+Firstrows2 <- ourdata[1:5, c(1,4,10,11)]
+Firstrows
+knitr::kable(Firstrows)
+```
+```{r}
+colnames(Firstrows) <- substring(colnames(Firstrows), first=1, last=4)
+mycorrelationnumbers = cor(Firstrows)
+knitr::kable(mycorrelationnumbers)
+
+
+```
+
+## Apply
+
+```{r}
+tmp = apply(Firstrows,2,sum)
+tmp
+
+
+```
